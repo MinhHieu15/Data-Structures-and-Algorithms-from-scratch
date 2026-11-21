@@ -1,0 +1,19 @@
+# build output
+build/
+*.exe
+*.o
+*.obj
+*.out
+*.ilk
+*.pdb
+
+# course material must never be committed (copyrighted, and far too big)
+*.mp4
+*.srt
+*.pdf
+
+# editor / OS
+.vs/
+*.code-workspace
+Thumbs.db
+.DS_Store

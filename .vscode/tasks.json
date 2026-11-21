@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run current file",
+            "detail": "Compile the open .cpp file with g++ and run its tests (Ctrl+Shift+B)",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/scripts/run.ps1", "${file}"],
+            "group": { "kind": "build", "isDefault": true },
+            "presentation": { "clear": true, "panel": "shared", "showReuseMessage": false },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Test current topic",
+            "detail": "Run every exercise in the folder of the open file",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/scripts/test.ps1", "-Path", "${fileDirname}"],
+            "group": "test",
+            "presentation": { "clear": true, "panel": "shared", "showReuseMessage": false },
+            "problemMatcher": []
+        },
+        {
+            "label": "Test all exercises",
+            "detail": "Run every exercise and show overall progress",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/scripts/test.ps1"],
+            "group": { "kind": "test", "isDefault": true },
+            "presentation": { "clear": true, "panel": "shared", "showReuseMessage": false },
+            "problemMatcher": []
+        },
+        {
+            "label": "Build current file (debug)",
+            "detail": "Used by the debugger (F5)",
+            "type": "process",
+            "command": "powershell.exe",
+            "args": ["-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${workspaceFolder}/scripts/run.ps1", "${file}", "-BuildOnly"],
+            "presentation": { "reveal": "silent", "panel": "shared" },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}
